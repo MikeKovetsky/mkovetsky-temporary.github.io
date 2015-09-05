@@ -251,7 +251,7 @@ ul.nav
 	background-image: url(../images/products-bg.jpg)
 	width: 100%
 	height: 300px
-	padding-top: 120px
+	padding-top: 70px
 	background-size: cover
 	.block-title
 		background-image: url(../images/triangle-blue.png)
@@ -420,12 +420,12 @@ ul.nav
 			height: 100%
 			bottom: 0
 			width: 87%
-			left: 14px
+			left: 13px
 			border: 4px solid $orange
 			border-radius: 4px
 			background-image: url("../images/plus.jpg")
 			background-repeat: no-repeat
-			background-position: 60px 55px
+			background-position: center
 			display: none
 
 		.product-title
@@ -600,7 +600,7 @@ footer
 		vertical-align: middle
 		letter-spacing: 1px
 
-@media screen and (max-width: 1240px)
+@media screen and (max-width: 1250px)
 	.about-us p
 		padding-right: 0
 	.products-content .product-container
@@ -628,6 +628,8 @@ footer
 		height: auto
 		padding: 25px 65px
 @media screen and (max-width: 760px)
+	.content-align
+		margin: 0 auto
 	header
 		display: none
 	.main
@@ -660,8 +662,24 @@ footer
 		padding: 0 20px
 		width: auto
 	.product
-		width: 176px
+		width: auto
 		margin auto
+		float: left
+		margin: 5px 12px
+		padding: 0
+	// .acordeon-body .row:after
+	// 	display: none
+	// button.button-more:after
+	// 	content: ''
+	.for-work .acordeon-body .product-title
+		left: 3px
+		width: 95%
+	.for-work .acordeon-body .product img
+		width: 115px
+	.for-work .acordeon-body .row
+		margin-bottom: 0
+	.for-work .acordeon-body button.button-more
+		margin: 15px 0
 	.border
 		display: none
 	footer .author
@@ -674,3 +692,6 @@ footer
 		font-size: 31px
 	.rozklad .right-container
 		padding: 25px 30px
+	.for-work .acordeon-body .product:after
+		width: 100%
+		left: 0

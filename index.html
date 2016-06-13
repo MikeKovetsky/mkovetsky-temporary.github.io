@@ -2,40 +2,157 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.4, user-scalable=no"> -->
-	<meta name="viewport" content="user-scalable=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<title>belka</title>
-	<link rel="stylesheet" href="main.css">
+	<title>Calc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="muting">
-		<div class="wide-body-layout">
-			<div class="head">
-				<div class="logo"><img src="images/logo.png" height="174" width="170" alt=""></div>
-				<div class="contacts">
-					<div class="socials">
-						<a href=""> <div class="facebook"><i class="fa fa-facebook"></i></div></a>
-						<a href=""> <div class="twitter"><i class="fa fa-twitter"></i></div></a>
-					</div>
-					<div class="stay-in-touch">
-						<div class="stay-in-touch-wrapper">
-							<h3>STAY IN TOUCH</h3>
-							<h5>Sign up for discounts and news</h5>
-							<input type="text">
-							<span class="no-span">We'll never spam or give this address away</span>
-							<a href=""><button><span>SEND</span></button></a>
-						</div>
-					</div>
+
+
+	<div class="tab-content">
+		<div class="calc1" class="tab-pane active" id="calc1">
+			<div class="container">
+				<input type="text" id="luck-input" placeholder="Показатель удачи"></input>
+				<input type="text" id="agility-input" placeholder="Показатель ловкости"></input>
+				<input type="text" id="enemy-level-input" placeholder="Уровень противника"></input>
+				<input type="text" id="distance-input" placeholder="Расстояние в клетках"></input>
+				<div class="result-container">
+					<span> Для крита:</span>
+					<span class="result" id="crit-result"></span>
+				</div>
+				<div class="result-container">
+					<span> Для попадания:</span>
+					<span class="result" id="target-result"></span>
 				</div>
 			</div>
-			<div class="cloud">
-				<div class="text-container">
-					<p>We are ordinary parents who love their children and know how critical are their first years, when they form their personality and acquire knowledge and learning skills. There are so many things we need to teach, show and explain them… But how should we do it? This is why we created TinyU Games. It is a digital academy for young, inquisitive and developing minds. </p>
+			<button id="calculate1">Go</button>
+		</div>
+		<div class="calc2" class="tab-pane" id="calc2">
+			<div class="container">
+				<input type="text" id="strength-input" placeholder="Показатель силы"></input>
+				<input type="text" id="damage-input" placeholder="Показатель урона оружия"></input>
+				<input type="text" id="dice-input" placeholder="Значение кубика"></input>
+				<div class="result-container">
+					<span>Урон:</span>
+					<span id="damage-result"></span>
 				</div>
 			</div>
-			<div class="coming-soon"></div>
+			<button id="calculate2">Go</button>
 		</div>
 	</div>
 </body>
 </html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+	$('#calculate1').click(function() {
+		var dice, critical;
+		var agility, enemylevel, range, luck;
+		agility =parseInt($('#agility-input').val());
+		enemylevel = parseInt($('#enemy-level-input').val());
+		range = parseInt($('#distance-input').val());
+		luck = parseInt($('#luck-input').val());
+		dice = 50 + (4 * enemylevel * (range / 1.3) - (agility + (luck / 1.1)));
+		if (dice >= 95)
+		{
+			dice = 95;
+			$('#target-result').text(dice);
+		}
+		else {
+			$('#target-result').text(dice);
+		}
+
+		critical = 95 + (4 * enemylevel * (range / 1.3) - (agility + (luck)));
+		$('#crit-result').text(critical);
+
+	})
+
+	$('#calculate2').click(function() {
+
+		var strength, damage, dice, result;
+		strength = parseInt($('#strength-input').val());
+		damage = parseInt($('#damage-input').val());
+		dice = parseInt($('#dice-input').val());
+
+		result = (damage + (strength * dice) / 60);
+		console.log(result)
+		$('#damage-result').text(result);
+
+
+	})
+</script>
+
+<style>
+	html {
+		height: 100%;
+	}
+	body {
+		height: 100%;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		background: linear-gradient(135deg, rgba(85,239,203,1) 0%,rgba(30,87,153,1) 0%,rgba(85,239,203,1) 0%,rgba(91,202,255,1) 100%);
+		color: #f7f7f7;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+	}
+	input {
+		margin: 10px auto;
+		display: block;
+		padding: 10px;
+		color: black;
+		border: 1px solid #5ACDFB;
+	}
+	.calc2 {
+		margin-top: 40px;
+	}
+	button {
+		outline: none;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		margin: 10px;
+		align-items: center;
+		color: white;
+		cursor: pointer;
+		padding: 10px 20px;
+		background: transparent;
+		font-size: 16px;
+		border: 2px solid #f7f7f7;
+		text-align: center;
+		text-transform: uppercase;
+		position: relative;
+		overflow: hidden;
+		-webkit-transition: .3s;
+		transition: .3s;
+	}
+	button:hover {
+		color: #10413D;
+		letter-spacing: 2px;
+	}
+	button:after {
+		position: absolute;
+		-webkit-transition: .3s;
+		transition: .3s;
+		content: '';
+		width: 0;
+		left: 50%;
+		bottom: 0;
+		height: 3px;
+		background: #f7f7f7;
+	}
+	.tab-content {
+		width: 100%;
+	}
+	button:hover:after {
+		left: -10%;
+		width: 120%;
+	}
+</style>

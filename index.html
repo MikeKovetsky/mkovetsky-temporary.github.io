@@ -9,37 +9,72 @@
 </head>
 <body>
 
-<h1>Calc</h1>
-	<div class="tab-content">
-		<div class="calc1" class="tab-pane active" id="calc1">
-			<div class="container">
-				<input type="text" id="luck-input" placeholder="Показатель удачи"></input>
-				<input type="text" id="agility-input" placeholder="Показатель ловкости"></input>
-				<input type="text" id="enemy-level-input" placeholder="Уровень противника"></input>
-				<input type="text" id="distance-input" placeholder="Расстояние в клетках"></input>
-				<div class="result-container">
+	<h1>Calc</h1>
+	<div class="calc1" class="" id="calc1">
+		<div class="container">
+			<div class="input-wrapper">
+				<label for="luck-input">Показатель удачи</label>
+				<input type="text" id="luck-input" placeholder=""></input>
+			</div>
+			<div class="input-wrapper">
+				<label for="agility-input">Уровень противника</label>
+				<input type="text" id="agility-input" placeholder=""></input>
+			</div>
+			<div class="input-wrapper">
+				<label for="enemy-level-input">Уровень противника</label>
+				<input type="text" id="enemy-level-input" placeholder=""></input>
+			</div>
+			<div class="input-wrapper">
+				<label for="distance-input">Расстояние в клетках</label>
+				<input type="text" id="distance-input" placeholder=""></input>
+			</div>
+			<div class="result-container">
+				<div class="result-wrapper">
 					<span> Для крита:</span>
 					<span class="result" id="crit-result"></span>
 				</div>
-				<div class="result-container">
+				<div class="result-wrapper">
 					<span> Для попадания:</span>
 					<span class="result" id="target-result"></span>
 				</div>
 			</div>
-			<button id="calculate1">Go</button>
 		</div>
-		<div class="calc2" class="tab-pane" id="calc2">
-			<div class="container">
-				<input type="text" id="strength-input" placeholder="Показатель силы"></input>
-				<input type="text" id="damage-input" placeholder="Показатель урона оружия"></input>
-				<input type="text" id="dice-input" placeholder="Значение кубика"></input>
-				<div class="result-container">
-					<span>Урон:</span>
-					<span id="damage-result"></span>
-				</div>
+		<button id="calculate1">Go</button>
+	</div>
+	<div class="calc2" class="tab-pane" id="calc2">
+		<div class="container">
+			<div class="input-wrapper">
+				<label for="strength-input">Показатель силы</label>
+				<input type="text" id="strength-input" placeholder=""></input>
 			</div>
-			<button id="calculate2">Go</button>
+			<div class="input-wrapper">
+				<label for="damage-input">Показатель урона оружия</label>
+				<input type="text" id="damage-input" placeholder=""></input>
+			</div>
+			<div class="input-wrapper">
+				<label for="dice-input">Значение кубика</label>
+				<input type="text" id="dice-input" placeholder=""></input>
+			</div>
+			<div class="result-container">
+				<span>Урон:</span>
+				<span id="damage-result"></span>
+			</div>
 		</div>
+		<button id="calculate2">Go</button>
+	</div>
+	<div class="classes-container">
+	<h2>Classes</h2>
+	<a href="DarkElf.jpg">DarkElf</a>
+	<a href="Dwarf.jpg">Dwarf</a>
+	<a href="Elf.jpg">Elf</a>
+	<a href="Red_ORc.jpg">Red_ORc</a>
+	<a href="Vorgen.jpg">Vorgen</a>
+	</div>
+	<div class="talants">
+		<h2>Talants</h2>
+		<a href="ag.jpg">Agility</a>
+		<a href="intellect1.jpg">Intellect</a>
+		<a href="str.jpg">Strength</a>
 	</div>
 </body>
 </html>
@@ -86,8 +121,8 @@
 <style>
 	h1 {
 		font-size: 46px;
-	    line-height: 1;
-	    margin-bottom: 20px;
+		line-height: 1;
+		margin-bottom: 20px;
 	}
 	html {
 		height: 100%;
@@ -99,13 +134,24 @@
 		font-weight: 300;
 		text-align: center;
 	}
+	.input-wrapper {
+		margin-top: 12px;
+		display: inline-block;
+		text-align: left;
+	}
+	.result-container {
+		margin-top: 16px;
+	}
+	label {
+		margin: 0;
+	}
 	input {
-		margin: 10px auto;
+		margin: 4px auto;
 		display: block;
 		padding: 10px;
 		color: black;
 		border: 1px solid #224C5C;
-		
+
 	}
 	.calc2 {
 		margin-top: 40px;
@@ -117,9 +163,9 @@
 		flex: 1 1 auto;
 		margin: 10px;
 		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		            -ms-grid-row-align: center;
-		        align-items: center;
+		-ms-flex-align: center;
+		-ms-grid-row-align: center;
+		align-items: center;
 		color: white;
 		cursor: pointer;
 		padding: 10px 20px;
@@ -154,5 +200,13 @@
 	button:hover:after {
 		left: -10%;
 		width: 120%;
+	}
+	a {
+		color: #65B7FF;
+		margin: 0 4px;	
+	}
+	a:hover {
+		color: #65B7FF;
+		text-decoration: underline;
 	}
 </style>

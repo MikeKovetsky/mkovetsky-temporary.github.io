@@ -78,10 +78,10 @@
 	</div>
 	<div class="themes">
 		<h2>Themes:</h2>
-		<div class="reference" id="green-color-trigger">Green</div>
-		<div class="reference" id="red-color-trigger">Red</div>
-		<div class="reference" id="grey-color-trigger">Grey</div>
-		<div class="reference" id="gradient-color-trigger">Gradient</div>
+		<button class="green button-small color-trigger" id="green-color-trigger">Green</button>
+		<button class="red button-small color-trigger" id="red-color-trigger">Red</button>
+		<button class="grey button-small color-trigger" id="grey-color-trigger">Grey</button>
+		<button class="gradient button-small color-trigger" id="gradient-color-trigger">Gradient</buttonv>
 	</div>
 </body>
 </html>
@@ -127,7 +127,7 @@
 		$('body').removeClass();
 		$('body').addClass(bgName);
 	}
-	$('.themes .reference').click(function() {
+	$('.color-trigger').click(function() {
 		switch (this.id) {
 			case 'green-color-trigger': {
 				changeBg('green'); break;	
@@ -243,6 +243,9 @@
 	.green {
 		background: #206d3f;
 	}
+	.green input {
+		outline-color: #72f5a6;
+	}
 	.red {
 		background: #5d0000;
 	}
@@ -257,15 +260,19 @@
 	background: linear-gradient(to bottom,  #00ffff 0%,#3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#3541b3',GradientType=0 ); /* IE6-9 */
 	}
-	
+	.button-small {
+		font-size: 14px;
+		padding: 6px 16px;
+	}
 	@media screen and (min-width: 790px) {
 		.themes {
 		position: ABSOLUTE;
-    	 	top: 10px;
-    		left: 10px;
+    	 		bottom: 10px;
+    			left: 10px;
 		}
 		.themes h2 {
 			display: inline;
+			vertical-align: sub;
 		}
 		.themes .reference {
 			display: inline;

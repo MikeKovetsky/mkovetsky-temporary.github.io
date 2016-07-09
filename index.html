@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="green">
 
 	<h1>Calc</h1>
 	<div class="calc1" class="" id="calc1">
@@ -17,7 +17,7 @@
 				<input type="text" id="luck-input" placeholder=""></input>
 			</div>
 			<div class="input-wrapper">
-				<label for="agility-input">Уровень противника</label>
+				<label for="agility-input">Показатель ловкости</label>
 				<input type="text" id="agility-input" placeholder=""></input>
 			</div>
 			<div class="input-wrapper">
@@ -63,18 +63,25 @@
 		<button id="calculate2">Go</button>
 	</div>
 	<div class="classes-container">
-		<h2>Classes</h2>
-		<a href="DarkElf.jpg">DarkElf</a>
-		<a href="Dwarf.jpg">Dwarf</a>
-		<a href="Elf.jpg">Elf</a>
-		<a href="Red_ORc.jpg">Red_ORc</a>
-		<a href="Vorgen.jpg">Vorgen</a>
+		<h2>Classes:</h2>
+		<a class="reference" href="DarkElf.jpg">DarkElf</a>
+		<a class="reference" href="Dwarf.jpg">Dwarf</a>
+		<a class="reference" href="Elf.jpg">Elf</a>
+		<a class="reference" href="Red_ORc.jpg">Red_ORc</a>
+		<a class="reference" href="Vorgen.jpg">Vorgen</a>
 	</div>
 	<div class="talants">
-		<h2>Talants</h2>
-		<a href="talants/ag.jpg">Agility</a>
-		<a href="talants/intellect1.jpg">Intellect</a>
-		<a href="talants/str.jpg">Strength</a>
+		<h2>Talants:</h2>
+		<a class="reference" href="talants/ag.jpg">Agility</a>
+		<a class="reference" href="talants/intellect1.jpg">Intellect</a>
+		<a class="reference" href="talants/str.jpg">Strength</a>
+	</div>
+	<div class="themes">
+		<h2>Themes:</h2>
+		<div class="reference" id="green-color-trigger">Green</div>
+		<div class="reference" id="red-color-trigger">Red</div>
+		<div class="reference" id="grey-color-trigger">Grey</div>
+		<div class="reference" id="gradient-color-trigger">Gradient</div>
 	</div>
 </body>
 </html>
@@ -116,6 +123,26 @@
 		$('#damage-result').text(result);
 
 	})
+	function changeBg(bgName) {
+		$('body').removeClass();
+		$('body').addClass(bgName);
+	}
+	$('.themes .reference').click(function() {
+		switch (this.id) {
+			case 'green-color-trigger': {
+				changeBg('green'); break;	
+			}
+			case 'red-color-trigger': {
+				changeBg('red'); break;	
+			}
+			case 'grey-color-trigger': {
+				changeBg('grey'); break;	
+			}
+			case 'gradient-color-trigger': {
+				changeBg('gradient'); break;	
+			}
+		}
+	})
 </script>
 
 <style>
@@ -126,14 +153,16 @@
 	}
 	html {
 		padding: 20px 0;
+		height:100%;
 	}
 	body {
-		background: rgb(34, 98, 121);
 		color: #f7f7f7;
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 		text-align: center;
+		height:100%;
 	}
+	
 	.input-wrapper {
 		margin-top: 12px;
 		display: inline-block;
@@ -144,11 +173,12 @@
 	}
 	label {
 		margin: 0;
+		font-weight: 400;
 	}
 	input {
 		margin: 4px auto;
 		display: block;
-		padding: 10px;
+		padding: 8px 10px;
 		color: black;
 		border: 1px solid #224C5C;
 
@@ -201,12 +231,44 @@
 		left: -10%;
 		width: 120%;
 	}
-	a {
+	.reference {
 		color: #65B7FF;
-		margin: 0 4px;	
+		margin: 0 4px;
+		cursor: pointer;	
 	}
-	a:hover {
+	.reference:hover {
 		color: #65B7FF;
 		text-decoration: underline;
+	}
+	.green {
+		background: #206d3f;
+	}
+	.red {
+		background: #5d0000;
+	}
+	.grey {
+		background: #546E7A;
+	}
+	.gradient {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,3541b3+99 */
+	background: #00ffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #00ffff 0%, #3541b3 99%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #00ffff 0%,#3541b3 99%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #00ffff 0%,#3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#3541b3',GradientType=0 ); /* IE6-9 */
+	}
+	
+	@media screen and (min-width: 790px) {
+		.themes {
+		position: ABSOLUTE;
+    	 	top: 10px;
+    		left: 10px;
+		}
+		.themes h2 {
+			display: inline;
+		}
+		.themes .reference {
+			display: inline;
+		}
 	}
 </style>

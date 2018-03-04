@@ -1,300 +1,331 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Calc</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet" type="text/css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Calc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
 </head>
 <body class="green">
 
-	<h1>Calc</h1>
-	<div class="calc1" class="" id="calc1">
-		<div class="container">
-			<div class="input-wrapper">
-				<label for="luck-input">Показатель удачи</label>
-				<input type="text" id="luck-input" placeholder=""></input>
-			</div>
-			<div class="input-wrapper">
-				<label for="agility-input">Показатель ловкости</label>
-				<input type="text" id="agility-input" placeholder=""></input>
-			</div>
-			<div class="input-wrapper">
-				<label for="enemy-level-input">Уровень противника</label>
-				<input type="text" id="enemy-level-input" placeholder=""></input>
-			</div>
-			<div class="input-wrapper">
-				<label for="distance-input">Расстояние в клетках</label>
-				<input type="text" id="distance-input" placeholder=""></input>
-			</div>
-			<div class="result-container">
-				<div class="result-wrapper">
-					<span> Для крита:</span>
-					<span class="result" id="crit-result"></span>
-				</div>
-				<div class="result-wrapper">
-					<span> Для попадания:</span>
-					<span class="result" id="target-result"></span>
-				</div>
-			</div>
-		</div>
-		<button id="calculate1">Go</button>
-	</div>
-	<div class="calc2" class="tab-pane" id="calc2">
-		<div class="container">
-			<div class="input-wrapper">
-				<label for="strength-input">Показатель силы</label>
-				<input type="text" id="strength-input" placeholder=""></input>
-			</div>
-			<div class="input-wrapper">
-				<label for="damage-input">Показатель урона оружия</label>
-				<input type="text" id="damage-input" placeholder=""></input>
-			</div>
-			<div class="input-wrapper">
-				<label for="dice-input">Значение кубика</label>
-				<input type="text" id="dice-input" placeholder=""></input>
-			</div>
-			<div class="result-container">
-				<span>Урон:</span>
-				<span id="damage-result"></span>
-			</div>
-		</div>
-		<button id="calculate2">Go</button>
-	</div>
-	<div class="classes-container">
-		<h2>Classes:</h2>
-		<a class="reference" href="DarkElf.jpg">DarkElf</a>
-		<a class="reference" href="Dwarf.jpg">Dwarf</a>
-		<a class="reference" href="Elf.jpg">Elf</a>
-		<a class="reference" href="HightElf.jpg">HightElf</a>
-		<a class="reference" href="Human.jpg">Human</a>
-		<a class="reference" href="Red_ORc.jpg">Red_ORc</a>
-		<a class="reference" href="Vorgen.jpg">Vorgen</a>
-	</div>
-	<div class="talants">
-		<h2>Talants:</h2>
-		<a class="reference" href="talants/ag.jpg">Agility</a>
-		<a class="reference" href="talants/intellect1.jpg">Intellect</a>
-		<a class="reference" href="talants/str.jpg">Strength</a>
-	</div>
-	<div class="themes">
-		<h2>Themes:</h2>
-		<button class="green button-small color-trigger" id="green-color-trigger">Green</button>
-		<button class="red button-small color-trigger" id="red-color-trigger">Red</button>
-		<button class="grey button-small color-trigger" id="grey-color-trigger">Grey</button>
-		<button class="gradient button-small color-trigger" id="gradient-color-trigger">Gradient</buttonv>
-	</div>
-	<div class="love">
-		<div>DnD <i class="fa fa-heart" aria-hidden="true"></i> </div>
-	</div>
+<h1>Calc</h1>
+<div class="calc1" class="" id="calc1">
+    <div class="container">
+        <div class="input-wrapper">
+            <label for="luck-input">Ваш уровень</label>
+            <input type="text" id="luck-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="agility-input">Показатель ловкости</label>
+            <input type="text" id="agility-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="enemy-level-input">Уровень противника</label>
+            <input type="text" id="enemy-level-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="distance-input">Расстояние в клетках</label>
+            <input type="text" id="distance-input" placeholder=""></input>
+        </div>
+        <div class="result-container">
+            <div class="result-wrapper">
+                <span> Для крита:</span>
+                <span class="result" id="crit-result"></span>
+            </div>
+            <div class="result-wrapper">
+                <span> Для попадания:</span>
+                <span class="result" id="target-result"></span>
+            </div>
+        </div>
+    </div>
+    <button id="calculate1">Go</button>
+</div>
+<div class="calc2" class="tab-pane" id="calc2">
+    <div class="container">
+        <div class="input-wrapper">
+            <label for="strength-input">Показатель силы</label>
+            <input type="text" id="strength-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="damage-input">Показатель урона оружия</label>
+            <input type="text" id="damage-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="dice-input">Значение кубика</label>
+            <input type="text" id="dice-input" placeholder=""></input>
+        </div>
+        <div class="result-container">
+            <span>Урон:</span>
+            <span id="damage-result"></span>
+        </div>
+    </div>
+    <button id="calculate2">Go</button>
+</div>
+<div class="classes-container">
+    <h2>Classes:</h2>
+    <a class="reference" href="DarkElf.jpg">DarkElf</a>
+    <a class="reference" href="Dwarf.jpg">Dwarf</a>
+    <a class="reference" href="Elf.jpg">Elf</a>
+    <a class="reference" href="HightElf.jpg">HightElf</a>
+    <a class="reference" href="Human.jpg">Human</a>
+    <a class="reference" href="Red_ORc.jpg">Red_ORc</a>
+    <a class="reference" href="Vorgen.jpg">Vorgen</a>
+</div>
+<div class="talants">
+    <h2>Talants:</h2>
+    <a class="reference" href="talants/ag.jpg">Agility</a>
+    <a class="reference" href="talants/intellect1.jpg">Intellect</a>
+    <a class="reference" href="talants/str.jpg">Strength</a>
+</div>
+<div class="themes">
+    <h2>Themes:</h2>
+    <button class="green button-small color-trigger" id="green-color-trigger">Green</button>
+    <button class="red button-small color-trigger" id="red-color-trigger">Red</button>
+    <button class="grey button-small color-trigger" id="grey-color-trigger">Grey</button>
+    <button class="gradient button-small color-trigger" id="gradient-color-trigger">Gradient</buttonv>
+</div>
+<div class="love">
+    <div>DnD <i class="fa fa-heart" aria-hidden="true"></i></div>
+</div>
 </body>
 </html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
-	$('#calculate1').click(function() {
-		var dice, critical;
-		var agility, enemylevel, range, luck;
-		agility =parseInt($('#agility-input').val());
-		enemylevel = parseInt($('#enemy-level-input').val());
-		range = parseInt($('#distance-input').val());
-		luck = parseInt($('#luck-input').val());
-		dice = 50 + (4 * enemylevel * (range / 1.3) - (agility + (luck / 1.1)));
-		if (dice >= 95)
-		{
-			dice = 95;
-			$('#target-result').text(dice);
-		}
-		else {
-			$('#target-result').text(dice);
-		}
+    $('#calculate1').click(function () {
+        var dice, critical;
+        var agility, enemylevel, range, yourLvl;
+        agility = parseInt($('#agility-input').val());
+        enemylevel = parseInt($('#enemy-level-input').val());
+        range = parseInt($('#distance-input').val());
+        yourLvl = parseInt($('#luck-input').val());
+        dice = 50 + (4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
+        if (dice >= 95) {
+            dice = 95;
+            $('#target-result').text(dice);
+        }
+        else {
+            $('#target-result').text(dice);
+        }
 
-		critical = 95 + (4 * enemylevel * (range / 1.3) - (agility + (luck)));
-		$('#crit-result').text(critical);
+        critical = 95 + +(4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
+        $('#crit-result').text(critical);
 
-	})
+    });
 
-	$('#calculate2').click(function() {
+    $('#calculate2').click(function () {
 
-		var strength, damage, dice, result;
-		strength = parseInt($('#strength-input').val());
-		damage = parseInt($('#damage-input').val());
-		dice = parseInt($('#dice-input').val());
+        var strength, damage, dice, result;
+        strength = parseInt($('#strength-input').val());
+        damage = parseInt($('#damage-input').val());
+        dice = parseInt($('#dice-input').val());
 
-		result = (damage + (strength * dice) / 60);
-		console.log(result)
-		$('#damage-result').text(result);
+        result = (damage + (strength * dice) / 60);
+        console.log(result)
+        $('#damage-result').text(result);
 
-	})
-	function changeBg(bgName) {
-		$('body').removeClass();
-		$('body').addClass(bgName);
-	}
-	$('.color-trigger').click(function() {
-		switch (this.id) {
-			case 'green-color-trigger': {
-				changeBg('green'); break;	
-			}
-			case 'red-color-trigger': {
-				changeBg('red'); break;	
-			}
-			case 'grey-color-trigger': {
-				changeBg('grey'); break;	
-			}
-			case 'gradient-color-trigger': {
-				changeBg('gradient'); break;	
-			}
-		}
-	})
+    })
+
+    function changeBg(bgName) {
+        $('body').removeClass();
+        $('body').addClass(bgName);
+    }
+
+    $('.color-trigger').click(function () {
+        switch (this.id) {
+            case 'green-color-trigger': {
+                changeBg('green');
+                break;
+            }
+            case 'red-color-trigger': {
+                changeBg('red');
+                break;
+            }
+            case 'grey-color-trigger': {
+                changeBg('grey');
+                break;
+            }
+            case 'gradient-color-trigger': {
+                changeBg('gradient');
+                break;
+            }
+        }
+    })
 </script>
 
 <style>
-	h1 {
-		font-size: 46px;
-		line-height: 1;
-		margin-bottom: 20px;
-	}
-	html {
-		padding: 20px 0;
-	}
-	body {
-		color: #f7f7f7;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		text-align: center;
-		transition: .3s;
-	}
-	
-	label {
-		margin: 0;
-		font-weight: 400;
-	}
-	input {
-		margin: 4px auto;
-		display: block;
-		padding: 8px 10px;
-		color: black;
-		border: 1px solid #224C5C;
+    h1 {
+        font-size: 46px;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
 
-	}
-	button {
-		outline: none;
-		-webkit-box-flex: 1;
-		-ms-flex: 1 1 auto;
-		flex: 1 1 auto;
-		margin: 10px;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		-ms-grid-row-align: center;
-		align-items: center;
-		color: white;
-		cursor: pointer;
-		padding: 10px 20px;
-		background: transparent;
-		font-size: 16px;
-		border: 2px solid #f7f7f7;
-		text-align: center;
-		text-transform: uppercase;
-		position: relative;
-		overflow: hidden;
-		-webkit-transition: .3s;
-		transition: .3s;
-	}
-	.input-wrapper {
-		margin-top: 12px;
-		display: inline-block;
-	}
-	.result-container {
-		margin-top: 16px;
-	}
-	.calc2 {
-		margin-top: 40px;
-	}
-	.tab-content {
-		width: 100%;
-	}
-	.reference {
-		color: #65B7FF;
-		margin: 0 4px;
-		cursor: pointer;	
-	}
-	.reference:hover {
-		color: #65B7FF;
-		text-decoration: underline;
-	}
-	.green {
-		background: #206d3f;
-	}
-	.green input {
-		outline-color: #72f5a6;
-	}
-	.red {
-		background: #5d0000;
-	}
-	.grey {
-		background: #546E7A;
-	}
-	.gradient {
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,3541b3+99 */
-		background: #00ffff; /* Old browsers */
-		background: -moz-linear-gradient(top,  #00ffff 0%, #3541b3 99%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  #00ffff 0%,#3541b3 99%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  #00ffff 0%,#3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#3541b3',GradientType=0 ); /* IE6-9 */
-	}
-	.button-small {
-		font-size: 14px;
-		padding: 6px 16px 4px;
-	}
-	.button-small:hover {
-		color: inherit;
-	}
-	@media screen and (min-width: 790px) {
-		
-		.themes {
-			position: ABSOLUTE;
-	 		bottom: 10px;
-			left: 10px;
-		}
-		.themes h2 {
-			display: inline;
-			vertical-align: sub;
-		}
-		.themes .reference {
-			display: inline;
-		}
+    html {
+        padding: 20px 0;
+    }
 
-		html {
-			height: 100%;
-		}
-		body {
-			height: 100%;
-		}
-		.love {
-			position: ABSOLUTE;
-	 		bottom: 10px;
-			right: 20px;
-		}
-		button:hover {
-			color: #0F2F3A;
-			letter-spacing: 2px;
-		}
-		button:after {
-			position: absolute;
-			-webkit-transition: .3s;
-			transition: .3s;
-			content: '';
-			width: 0;
-			left: 50%;
-			bottom: 0;
-			height: 3px;
-			background: #f7f7f7;
-		}
-		button:hover:after {
-			left: -10%;
-			width: 120%;
-		}
-	}
+    body {
+        color: #f7f7f7;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        transition: .3s;
+    }
+
+    label {
+        margin: 0;
+        font-weight: 400;
+    }
+
+    input {
+        margin: 4px auto;
+        display: block;
+        padding: 8px 10px;
+        color: black;
+        border: 1px solid #224C5C;
+
+    }
+
+    button {
+        outline: none;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        margin: 10px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -ms-grid-row-align: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px;
+        background: transparent;
+        font-size: 16px;
+        border: 2px solid #f7f7f7;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        overflow: hidden;
+        -webkit-transition: .3s;
+        transition: .3s;
+    }
+
+    .input-wrapper {
+        margin-top: 12px;
+        display: inline-block;
+    }
+
+    .result-container {
+        margin-top: 16px;
+    }
+
+    .calc2 {
+        margin-top: 40px;
+    }
+
+    .tab-content {
+        width: 100%;
+    }
+
+    .reference {
+        color: #65B7FF;
+        margin: 0 4px;
+        cursor: pointer;
+    }
+
+    .reference:hover {
+        color: #65B7FF;
+        text-decoration: underline;
+    }
+
+    .green {
+        background: #206d3f;
+    }
+
+    .green input {
+        outline-color: #72f5a6;
+    }
+
+    .red {
+        background: #5d0000;
+    }
+
+    .grey {
+        background: #546E7A;
+    }
+
+    .gradient {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,3541b3+99 */
+        background: #00ffff; /* Old browsers */
+        background: -moz-linear-gradient(top, #00ffff 0%, #3541b3 99%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #00ffff 0%, #3541b3 99%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #00ffff 0%, #3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#3541b3', GradientType=0); /* IE6-9 */
+    }
+
+    .button-small {
+        font-size: 14px;
+        padding: 6px 16px 4px;
+    }
+
+    .button-small:hover {
+        color: inherit;
+    }
+
+    @media screen and (min-width: 790px) {
+
+        .themes {
+            position: ABSOLUTE;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .themes h2 {
+            display: inline;
+            vertical-align: sub;
+        }
+
+        .themes .reference {
+            display: inline;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .love {
+            position: ABSOLUTE;
+            bottom: 10px;
+            right: 20px;
+        }
+
+        button:hover {
+            color: #0F2F3A;
+            letter-spacing: 2px;
+        }
+
+        button:after {
+            position: absolute;
+            -webkit-transition: .3s;
+            transition: .3s;
+            content: '';
+            width: 0;
+            left: 50%;
+            bottom: 0;
+            height: 3px;
+            background: #f7f7f7;
+        }
+
+        button:hover:after {
+            left: -10%;
+            width: 120%;
+        }
+    }
 </style>

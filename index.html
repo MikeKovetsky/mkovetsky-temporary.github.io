@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,6 +63,47 @@
     </div>
     <button id="calculate2">Go</button>
 </div>
+<div class="calc3" class="tab-pane" id="calc3">
+    <div class="container">
+        <div class="input-wrapper">
+            <label for="wisdom-input">Показатель разума</label>
+            <input type="text" id="wisdom-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="intellect-input">Показатель интеллекта</label>
+            <input type="text" id="intellect-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="slvl-input"> Уровень заклинания</label>
+            <input type="text" id="slvl-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="sdmg-input">Урон от заклинания</label>
+            <input type="text" id="sdmg-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="dicehit-input">Значение кубика(каст)</label>
+            <input type="text" id="dicehit-input" placeholder=""></input>
+        </div>
+        <div class="input-wrapper">
+            <label for="dicex-input">Значение кубика(урон)</label>
+            <input type="text" id="dicex-input" placeholder=""></input>
+        </div>
+        <div class="result-container">
+            <span>Урон:</span>
+            <span id="dmg-result"></span>
+        </div>
+        <div class="result-container">
+            <span>Каст:</span>
+            <span id="hit-result"></span>
+        </div>
+        <div class="result-container">
+            <span>Каст(крит):</span>
+            <span id="hitс-result"></span>
+        </div>
+    </div>
+    <button id="calculate3">Go</button>
+</div>
 <div class="classes-container">
     <h2>Classes:</h2>
     <a class="reference" href="DarkElf.jpg">DarkElf</a>
@@ -79,13 +120,13 @@
     <a class="reference" href="talants/intellect1.jpg">Intellect</a>
     <a class="reference" href="talants/str.jpg">Strength</a>
 </div>
-<div class="themes">
+<!--<div class="themes">
     <h2>Themes:</h2>
     <button class="green button-small color-trigger" id="green-color-trigger">Green</button>
     <button class="red button-small color-trigger" id="red-color-trigger">Red</button>
     <button class="grey button-small color-trigger" id="grey-color-trigger">Grey</button>
     <button class="gradient button-small color-trigger" id="gradient-color-trigger">Gradient</buttonv>
-</div>
+</div>-->
 <div class="love">
     <div>DnD <i class="fa fa-heart" aria-hidden="true"></i></div>
 </div>
@@ -102,7 +143,7 @@
         enemylevel = parseInt($('#enemy-level-input').val());
         range = parseInt($('#distance-input').val());
         yourLvl = parseInt($('#luck-input').val());
-        dice = 50 + (4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
+        dice = 45 + (4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
         if (dice >= 95) {
             dice = 95;
             $('#target-result').text(dice);
@@ -110,30 +151,48 @@
         else {
             $('#target-result').text(dice);
         }
-
-        critical = 95 + +(4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
+        critical = 90 + +(4 * enemylevel + range * 4) - (agility + (yourLvl * 3));
         $('#crit-result').text(critical);
-
     });
-
     $('#calculate2').click(function () {
-
         var strength, damage, dice, result;
         strength = parseInt($('#strength-input').val());
         damage = parseInt($('#damage-input').val());
         dice = parseInt($('#dice-input').val());
-
         result = (damage + (strength * dice) / 60);
         console.log(result)
         $('#damage-result').text(result);
-
     })
-
+    $('#calculate3').click(function () {
+        var wisdom, slvl, intellect, sdmg, dicehit, dice, result, result2,result3;
+        wisdom = parseInt($('#wisdom-input').val());
+        slvl = parseInt($('#slvl-input').val());
+        intellect = parseInt($('#intellect-input').val());
+        sdmg = parseInt($('#sdmg-input').val());
+        dicehit = parseInt($('#dicehit-input').val());
+        dicex = parseInt($('#dicex-input').val());
+        result = ((20 * slvl) - (2 * wisdom));
+        result3 = ((41 * slvl) - (2 * wisdom));
+        if (dicehit >= (( 41* slvl) - (2 * wisdom))) 
+        {
+             result2 = sdmg + ((sdmg/100)*(intellect/3 + ((dicex + (intellect * 3))/3)));
+             console.log(result2)
+             $('#dmg-result').text(result2);
+        }
+        else {
+            result2 = sdmg + ((sdmg/100)*(intellect/3 + ((dicex + (intellect * 2))/5)));
+             console.log(result2)
+             $('#dmg-result').text(result2);
+        }
+        console.log(result)
+        $('#hit-result').text(result);
+        console.log(result3)
+        $('#hitс-result').text(result3);
+    })
     function changeBg(bgName) {
         $('body').removeClass();
         $('body').addClass(bgName);
     }
-
     $('.color-trigger').click(function () {
         switch (this.id) {
             case 'green-color-trigger': {
@@ -162,11 +221,9 @@
         line-height: 1;
         margin-bottom: 20px;
     }
-
     html {
         padding: 20px 0;
     }
-
     body {
         color: #f7f7f7;
         font-family: 'Roboto', sans-serif;
@@ -174,21 +231,17 @@
         text-align: center;
         transition: .3s;
     }
-
     label {
         margin: 0;
         font-weight: 400;
     }
-
     input {
         margin: 4px auto;
         display: block;
         padding: 8px 10px;
         color: black;
         border: 1px solid #224C5C;
-
     }
-
     button {
         outline: none;
         -webkit-box-flex: 1;
@@ -212,51 +265,40 @@
         -webkit-transition: .3s;
         transition: .3s;
     }
-
     .input-wrapper {
         margin-top: 12px;
         display: inline-block;
     }
-
     .result-container {
         margin-top: 16px;
     }
-
     .calc2 {
         margin-top: 40px;
     }
-
     .tab-content {
         width: 100%;
     }
-
     .reference {
         color: #65B7FF;
         margin: 0 4px;
         cursor: pointer;
     }
-
     .reference:hover {
         color: #65B7FF;
         text-decoration: underline;
     }
-
     .green {
         background: #206d3f;
     }
-
     .green input {
         outline-color: #72f5a6;
     }
-
     .red {
         background: #5d0000;
     }
-
     .grey {
         background: #546E7A;
     }
-
     .gradient {
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,3541b3+99 */
         background: #00ffff; /* Old browsers */
@@ -265,52 +307,41 @@
         background: linear-gradient(to bottom, #00ffff 0%, #3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#3541b3', GradientType=0); /* IE6-9 */
     }
-
     .button-small {
         font-size: 14px;
         padding: 6px 16px 4px;
     }
-
     .button-small:hover {
         color: inherit;
     }
-
     @media screen and (min-width: 790px) {
-
         .themes {
             position: ABSOLUTE;
             bottom: 10px;
             left: 10px;
         }
-
         .themes h2 {
             display: inline;
             vertical-align: sub;
         }
-
         .themes .reference {
             display: inline;
         }
-
         html {
             height: 100%;
         }
-
         body {
             height: 100%;
         }
-
         .love {
             position: ABSOLUTE;
             bottom: 10px;
             right: 20px;
         }
-
         button:hover {
             color: #0F2F3A;
             letter-spacing: 2px;
         }
-
         button:after {
             position: absolute;
             -webkit-transition: .3s;
@@ -322,7 +353,6 @@
             height: 3px;
             background: #f7f7f7;
         }
-
         button:hover:after {
             left: -10%;
             width: 120%;
